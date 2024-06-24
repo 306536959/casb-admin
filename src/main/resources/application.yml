@@ -1,0 +1,37 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: casb-admin
+    version: 1.0.0
+    description: Spring Boot Admin Service with MyBatis integration
+    # 注意：作者信息建议通过其他方式记录，或根据实际情况调整格式
+#  数据库配置
+  datasource:
+   url: jdbc:mysql://localhost:3306/jxcxt?useSSL=false&serverTimezone=UTC
+   username: root
+   password: 123456
+   driver-class-name: com.mysql.cj.jdbc.Driver
+#   分页插件配置
+pagehelper:
+  helperDialect: mysql
+  supportMethodsArguments: true
+  params: pageNum,pageSize,count,pageSizeZero,reasonable
+  rowBoundsWithCount: true
+  supportMethodInPageObject: true
+
+mybatis:
+  # 搜索指定包别名
+  typeAliasesPackage: "com.casb.casbadmin;"
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath*:mapper/*.xml,classpath*:mapper/**/*.xml
+  # MyBatis全局配置
+  configuration:
+    cache-enabled: true
+    use-generated-keys: true
+    default-executor-type: reuse
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
