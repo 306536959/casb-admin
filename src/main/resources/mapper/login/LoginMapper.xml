@@ -5,4 +5,7 @@
     <select id="login" resultType="java.lang.Boolean">
         select count(1) from user_info where user_id = #{userId} and password = #{password}
     </select>
+    <select id="list" resultType="java.lang.Object">
+        select * from goods_info
+    </select>
 </mapper>

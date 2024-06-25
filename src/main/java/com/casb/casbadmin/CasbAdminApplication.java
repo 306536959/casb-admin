@@ -10,6 +10,7 @@ public class CasbAdminApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(CasbAdminApplication.class, args);
+        System.out.printf("后台启动成功");
     }
 
 }
